@@ -9,9 +9,10 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="150"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15"></ColumnDefinition>
@@ -19,12 +20,11 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition Width="15"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Опишите Вашу проблему и нажмите кнопку отправить, по необходимости укажите контактные данные для связи" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <TextBox Text="" Name="TextBox" TextWrapping="Wrap" SelectionBrush="Blue"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" SpellCheck.IsEnabled="True" Language="ru-ru"/>
+        <TextBlock Text="Опишите Вашу проблему и нажмите кнопку отправить, по необходимости укажите контактные данные для связи" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" FontSize="14" FontFamily="Comic Sans MS"/>
+        <TextBox Text="" Name="TextBox" TextWrapping="Wrap" SelectionBrush="Blue"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" SpellCheck.IsEnabled="True" Language="ru-ru" FontStyle="Normal" FontSize="16" FontFamily="Times New Roman"/>
         <Button Content="Отправить сообщение" Grid.Column="1" Grid.Row="3" Margin="10" Height="25" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click" />
+        <TextBlock Name="TextBlock" TextWrapping="Wrap" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" FontSize="14" FontFamily="Comic Sans MS"/>
 
 
-
-
-    </Grid>
+</Grid>
 </Window>

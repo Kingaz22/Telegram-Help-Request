@@ -17,43 +17,32 @@ namespace Telegram_Helper
             public string ChatId { get; set; }
         }
 
+
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            string token, chatId, userNameWin, compName, text, str;
+            string token, chatId, text;
 
-            userNameWin = Environment.UserName;
-            compName = Environment.MachineName;
             try
             {
-
                 using (FileStream fs = new FileStream("setings.json", FileMode.OpenOrCreate))
                 {
-                    SetingTelegram restoredPerson = await JsonSerializer.DeserializeAsync<SetingTelegram>(fs);
-                    token = restoredPerson.Token;
-                    chatId = restoredPerson.ChatId;
+                    SetingTelegram setingTelegram = await JsonSerializer.DeserializeAsync<SetingTelegram>(fs);
+                    token = setingTelegram.Token;
+                    chatId = setingTelegram.ChatId;
                 }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Не найден файл настроек");
-                throw;
-            }
+                text = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chatId + "&text=" +
+                       "<b>Имя пользователя: </b><i> " + Environment.UserName + "</i>\n" +
+                       "<b>Имя компьютера:</b> <i>" + Environment.MachineName + "</i>>\n" +
+                       "<b>Текст сообжения: </b><i>" + TextBox.Text + "</i>" +
+                       "&parse_mode=html";
 
-
-            str = "<b>Имя пользователя: </b><i> " + userNameWin + "</i>  <b>Имя компьютера:</b>  <i>" + compName + "</i> <b> Текст сообжения: </b><i>" + TextBox.Text + "</i>";
-
-
-
-            text = "https://api.telegram.org/bot" + token + "/sendMessage?chat_id=" + chatId + "&text=" + str + "&parse_mode=html";
-
-            try
-            {
                 WebRequest request = WebRequest.Create(text);
                 WebResponse response = await request.GetResponseAsync();
                 await using (Stream stream = response.GetResponseStream())
@@ -63,15 +52,13 @@ namespace Telegram_Helper
                 }
                 response.Close();
                 MessageBox.Show("Сообщение отправлено");
-
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Сообщение не отправлено, проверте подключение интернета");
-                throw;
+                MessageBox.Show("Ошибка: " + ex.Message + "\n Свяжитесь с администарторм сетей");
             }
 
-            
         }
+
     }
 }
