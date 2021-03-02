@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Telegram_Helper"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Заявка специалисту по сопровождению программного обеспечения" Height="344" Width="570" WindowStartupLocation="CenterScreen" Icon="/Ypf-Transformers-Document-help-and-support.ico">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="15"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Укажите номер телефона для обратной связи" TextWrapping="Wrap" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" FontSize="14" FontFamily="Comic Sans MS"/>
+        <TextBox Text="" Name="TextBox1" TextWrapping="Wrap" SelectionBrush="Blue"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" SpellCheck.IsEnabled="True" Language="ru-ru" FontStyle="Normal" FontSize="16" FontFamily="Times New Roman"/>
+
+        <TextBlock Text="Опишите Вашу проблему и нажмите кнопку отправить заявку" TextWrapping="Wrap" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" FontSize="14" FontFamily="Comic Sans MS"/>
+        <TextBox Text="" Name="TextBox" TextWrapping="Wrap" SelectionBrush="Blue"  Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" SpellCheck.IsEnabled="True" Language="ru-ru" FontStyle="Normal" FontSize="16" FontFamily="Times New Roman"/>
+        <Button Content="Отправить заявку" Grid.Column="1" Grid.Row="5" Margin="10" Height="25" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click" />
+
+
     </Grid>
 </Window>
